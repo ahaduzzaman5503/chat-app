@@ -2,23 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Navber from './components/Navber/Navber'
+import {auth} from './firebase'
+import {useAuthState} from 'react-firebase-hooks/auth'
+import Chat from './components/Chat/Chat'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user] = useAuthState(auth)
+  console.log(user);
 
   return (
     <>
-       <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
-
-    <button className="btn">Button</button>
-<button className="btn btn-neutral">Neutral</button>
-<button className="btn btn-primary">Primary</button>
-<button className="btn btn-secondary">Secondary</button>
-<button className="btn btn-accent">Accent</button>
-<button className="btn btn-ghost">Ghost</button>
-<button className="btn btn-link">Link</button>
+  <Navber></Navber>
+  <Chat></Chat>
     </>
   )
 }
