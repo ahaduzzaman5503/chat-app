@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import TextMassage from '../TextMassage/TextMassage';
 import { collection, doc, onSnapshot, orderBy, query, QuerySnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
+import SendMassage from '../SendMassage/SendMassage';
 
 const Chat = () => {
     const [massages, setMassages]  = useState([]);
@@ -21,13 +22,13 @@ const Chat = () => {
 
     return (
         <>
-        <main className='container mx-auto bg-slate-500 rounded shadow-2xl p-5'>
+        <main className='container mx-auto bg-slate-500 rounded shadow-2xl p-5 '>
             <h1>Chat box</h1>
             {massages && massages.map((massage) => (
                 <TextMassage key={massage.id} massage={massage}></TextMassage>
             ) )}
         </main>
-            {/* send masssage component */}
+            <SendMassage scroll={scroll}></SendMassage>
             <span ref={scroll}></span>
         </>
     );
