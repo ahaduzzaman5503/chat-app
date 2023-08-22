@@ -9,7 +9,7 @@ const style = {
 };
 
 const TextMassage = ({ massage }) => {
- const massageClass = massage.uid === auth.currentUser.uid ?
+ const massageClass = massage.uid === auth.currentUser?.uid ?
  `${style.sent}` : `${style.received}`
 
   return (
