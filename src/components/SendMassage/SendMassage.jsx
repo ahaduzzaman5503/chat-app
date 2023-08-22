@@ -21,7 +21,7 @@ const SendMassage = ({scroll}) => {
         await addDoc(collection(db, 'massages'), {
             text: input,
             name: displayName,
-            uid,
+            uid: uid,
             timestamp: serverTimestamp(),
             photoURL: photoURL
         })
